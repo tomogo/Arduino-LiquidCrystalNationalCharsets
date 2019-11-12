@@ -32,5 +32,6 @@ void setup() {<br>
   */<br>
 
   lcd.begin(16,2);<br>
+  lcd.write(byte(0)); // Print long_a char on the LCD.
 
 }<br>
