@@ -33,8 +33,8 @@ void setup() {<br>
 
   lcd.begin(16,2);<br>
   
-  // Print on LCD<br>
-  writeLCD(lcd, "Test: #$%^&|'+", 0, 0);<br>
+  // Print on LCD by writeLCD<br>
+  writeLCD(lcd, "Test: #$%^&|'+", -1, -1);<br>
   //  - it prints: "Test: ěšíďžúů"
 
 }<br>
