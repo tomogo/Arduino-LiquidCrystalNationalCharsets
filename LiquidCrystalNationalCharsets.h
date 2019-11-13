@@ -1,8 +1,8 @@
 /*
-Czech charset for LCD display. There are only czech small capitals: áčďéěíňóřšťúůýž
+Czech charset for LCD display. There are only czech small chars: áčďéěíňóřšťúůýž
 you can add next chars you need for your language
 
-There are named [long/hook/ring]_[capital]
+There are named [long/hook/ring/umlaut]_[capital]
 
 Using:
 
@@ -19,7 +19,7 @@ const int d7 = 7;
 LiquidCrystal lcd( RS, EN, d4, d5, d6, d7);
 
 void setup() {
-// You can add capitals with id 0-7 in procedure: createChar(yourLCD, id, charMap, charInsteadOf)
+// You can add chars with id 0-7 in procedure: createChar(yourLCD, id, charMap, charInsteadOf)
 
 createChar(lcd, 0, hook_c, '#');
 createChar(lcd, 1, hook_e, '$');
