@@ -49,8 +49,8 @@ writeLCD(lcd, "Hi!", -1, -1);
 #define LiquidCrystalNationalCharsets_h
 
 void createChar(LiquidCrystal lcd, uint8_t location, uint8_t charmap[], uint8_t instead);
-void writeLCD(LiquidCrystal lcd, uint8_t outChar, uint8_t column, uint8_t row);
-void writeLCD(LiquidCrystal lcd, String text, uint8_t column, uint8_t row);
+void writeLCD(LiquidCrystal lcd, uint8_t outChar, int column, int row);
+void writeLCD(LiquidCrystal lcd, String text, int column, int row);
 
 // Czech small capitals
 uint8_t smiley[8] = {
