@@ -1,5 +1,6 @@
 /*
 Czech charset for LCD display. There are only czech small capitals: áčďéěíňóřšťúůýž
+you can add next chars you need for your language
 
 There are named [long/hook/ring]_[capital]
 
@@ -40,7 +41,6 @@ writeLCD(lcd, '#', 0, 1);
 
 //This prints "Hi!" on cursor position:
 writeLCD(lcd, "Hi!", -1, -1);
-
 }
 */
 
