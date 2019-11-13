@@ -3,6 +3,11 @@
 
 uint8_t insteadOff[8] = {255, 255, 255, 255, 255, 255, 255, 255};
 
+void createChar(LiquidCrystal lcd, uint8_t location, uint8_t charmap[], uint8_t instead) {
+  lcd.createChar(location, charmap);
+  insteadOff[location]=instead;
+}
+
 void writeLCD(LiquidCrystal lcd, uint8_t outChar, uint8_t column, uint8_t row) {
   
   if ( column>=0 && row>=0 ) {
@@ -24,9 +29,4 @@ void writeLCD(LiquidCrystal lcd, String text, uint8_t column, uint8_t row) {
   for(int i=0; i<text.length(); i++) {
     writeLCD( lcd, text.charAt(i),-1, -1);
   }
-}
-
-void createChar(LiquidCrystal lcd, uint8_t location, uint8_t charmap[], uint8_t instead) {
-  lcd.createChar(location, charmap);
-  insteadOff[location]=instead;
 }
