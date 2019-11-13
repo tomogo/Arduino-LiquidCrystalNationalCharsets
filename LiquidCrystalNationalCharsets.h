@@ -2,7 +2,7 @@
 Czech charset for LCD display. There are only czech small chars: áčďéěíňóřšťúůýž
 you can add next chars you need for your language
 
-There are named [long/hook/ring/umlaut]_[capital]
+There are named [long/hook/ring/umlaut]_[char]
 
 Using:
 
