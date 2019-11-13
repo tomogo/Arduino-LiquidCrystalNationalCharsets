@@ -1,9 +1,56 @@
+/*
+Czech charset for LCD display. There are only czech small capitals: áčďéěíňóřšťúůýž
+
+There are named [long/hook/ring]_[capital]
+
+Using:
+
+#include <LiquidCrystal.h>
+#include <LiquidCrystalNationalCharsets.h>
+
+const int RS = 8;
+const int EN = 9;
+const int d4 = 4;
+const int d5 = 5;
+const int d6 = 6;
+const int d7 = 7;
+
+LiquidCrystal lcd( RS, EN, d4, d5, d6, d7);
+
+void setup() {
+// You can add capitals with id 0-7 in procedure: createChar(yourLCD, id, charMap, charInsteadOf)
+
+createChar(lcd, 0, hook_c, '#');
+createChar(lcd, 1, hook_e, '$');
+createChar(lcd, 2, hook_s, '%');
+createChar(lcd, 3, long_i, '^');
+createChar(lcd, 4, hook_d, '&');
+createChar(lcd, 5, hook_z, '|');
+createChar(lcd, 6, long_u, ''');
+createChar(lcd, 7, ring_u, '+');
+
+lcd.begin(16,2);
+
+// Print on LCD by procedure: writeLCD(yourLCD, char/String, column, row)
+// This prints "Test: ěšíďžúů" on the cursor position: 
+writeLCD(lcd, "Test: #$%^&|'+", -1, -1);
+
+//This prints "ě" on row 1 
+writeLCD(lcd, '#', 0, 1);
+
+//This prints "Hi!" on cursor position:
+writeLCD(lcd, "Hi!", -1, -1);
+
+}
+*/
+
+
 #ifndef LiquidCrystalNationalCharsets_h
 #define LiquidCrystalNationalCharsets_h
 
+void createChar(LiquidCrystal lcd, uint8_t location, uint8_t charmap[], uint8_t instead);
 void writeLCD(LiquidCrystal lcd, uint8_t outChar, uint8_t column, uint8_t row);
 void writeLCD(LiquidCrystal lcd, String text, uint8_t column, uint8_t row);
-void createChar(LiquidCrystal lcd, uint8_t location, uint8_t charmap[], uint8_t instead);
 
 // Czech small capitals
 uint8_t smiley[8] = {
