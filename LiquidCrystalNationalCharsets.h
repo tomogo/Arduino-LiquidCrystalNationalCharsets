@@ -48,9 +48,11 @@ writeLCD(lcd, "Hi!", -1, -1);
 #ifndef LiquidCrystalNationalCharsets_h
 #define LiquidCrystalNationalCharsets_h
 
-void createChar(LiquidCrystal lcd, uint8_t location, uint8_t charmap[], uint8_t instead);
-void writeLCD(LiquidCrystal lcd, uint8_t outChar, int column, int row);
-void writeLCD(LiquidCrystal lcd, String text, int column, int row);
+void setCursorLCD(LiquidCrystal &lcd, int column, int row);
+void createChar(LiquidCrystal &lcd, uint8_t location, uint8_t charmap[], uint8_t instead);
+void printLCD(LiquidCrystal &lcd, uint8_t outChar, int column, int row);
+void writeLCD(LiquidCrystal &lcd, String &text, int column, int row);
+void writeLCD(LiquidCrystal &lcd, uint8_t *text, int column, int row);
 
 // Czech small capitals
 uint8_t smiley[8] = {
@@ -69,7 +71,7 @@ uint8_t long_a[8] = {
   B00001,
   B01111,
   B10001,
-  B01110,
+  B01111,
 };
 uint8_t hook_c[8] = {
   B01010,
