@@ -1,10 +1,7 @@
 # Arduino-LiquidCrystalNationalCharsets
-Czech charset for LCD display. There are only czech small capitals: áčďéěíňóřšťúůýž<br>
+Library for using LCDs, national charsets aded.
 
-National charset for LiquidCrystal.h
-
-czech.h contains only czech small chars: áčďéěíňóřšťúůýž
-
+czech.h contains only czech small capitals: áčďéěíňóřšťúůýž<br>
 you can add next chars by your self in next lang.h files
 
 Characters are named [long/hook/ring/umlaut]_[char]
