@@ -55,6 +55,7 @@ void setup() {
 
 void loop() {
   lcd.scrollStringLeft("Hi bro!",1);
+  delay(200);
 }
 */
 
