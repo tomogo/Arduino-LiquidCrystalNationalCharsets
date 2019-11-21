@@ -77,12 +77,14 @@ class LiquidCrystalNationalCharsets : public LiquidCrystal {
     void writeLCD(uint8_t *text, int column, int row);
     
     void scrollStringLeft(String r, uint8_t row);
+    void scrollStringRight(String r, uint8_t row);
     void scrollReset();
   private:
     uint8_t insteadOff[8] = {255, 255, 255, 255, 255, 255, 255, 255};
     uint8_t _cols;
     uint8_t _rows;
-    int scrollIndex=0;
+    int scrollIndexL;
+    int scrollIndexR;
 };
 
 #endif

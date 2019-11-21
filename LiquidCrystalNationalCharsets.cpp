@@ -8,7 +8,8 @@ LiquidCrystalNationalCharsets::LiquidCrystalNationalCharsets(uint8_t rs, uint8_t
 void LiquidCrystalNationalCharsets::begin(uint8_t cols, uint8_t rows, uint8_t charsize = LCD_5x8DOTS) {
   LiquidCrystal::begin(cols, rows);
   _cols=cols;
-  _rows=rows;
+  scrollIndexL=0;
+  scrollIndexR=0;
 }
 
 void LiquidCrystalNationalCharsets::setCursorLCD(int column, int row) {
@@ -58,17 +59,35 @@ void LiquidCrystalNationalCharsets::scrollStringLeft(String r, uint8_t row) {
   }
   writeLCD(r1, 0, row);
   r1 += r;
-  if (scrollIndex+_cols>r1.length()){
-    r2=r1.substring(scrollIndex,r1.length());
+  if (scrollIndexL+_cols>r1.length()){
+    r2=r1.substring(scrollIndexL,r1.length());
   } else {
-    r2=r1.substring(scrollIndex,scrollIndex+_cols);
+    r2=r1.substring(scrollIndexL,scrollIndexL+_cols);
   }
   delay(25);
   writeLCD(r2, 0, row);
-  delay(350);
-  if (scrollIndex++>=r1.length()) scrollIndex=0;
+  if (scrollIndexL++>=r1.length()) scrollIndexL=0;
+}
+
+void LiquidCrystalNationalCharsets::scrollStringRight( String r, uint8_t row ) {
+  String r1;
+  String r2;
+  for ( uint8_t i = 0; i < _cols; i++ ) {
+    r1 += " ";
+  }
+  writeLCD( r1, 0, row );
+  r1 += r;
+  if ( --scrollIndexR < 0 ) scrollIndexR=r1.length();
+  if ( scrollIndexR + _cols > r1.length() ){
+    r2=r1.substring(scrollIndexR,r1.length());
+  } else {
+    r2=r1.substring( scrollIndexR, scrollIndexR+_cols );
+  }
+  delay( 25 );
+  writeLCD( r2, 0, row);
 }
 
 void LiquidCrystalNationalCharsets::scrollReset() {
-  scrollIndex=0;
+  scrollIndexL=0;
+  scrollIndexR=0;
 }
